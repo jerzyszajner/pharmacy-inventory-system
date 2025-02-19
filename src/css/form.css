@@ -1,0 +1,59 @@
+/* Styles for the form modal */
+.form-modal {
+    width: 100%;
+    height: 100%;
+    display: none;
+    /* display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed; */
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background-color: var(--modal-overlay-background);
+}
+
+.form {
+    min-width: 380px;
+    width: 30%;
+    height: auto;
+    padding: var(--spacing-medium);
+    background-color: var(--color-background-light);
+    border-radius: var(--border-radius-medium);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.form__group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-x-small);
+}
+
+.form__label {
+    font-size: var(--font-size-medium);
+    color: var(--text-color-dark);
+}
+
+.form__input {
+    padding: var(--spacing-small);
+    border-radius: var(--border-radius-small);
+    margin-bottom: var(--spacing-medium);
+    font-size: var(--font-size-base);
+    box-shadow: var(--box-shadow-base)
+}
+
+/* Styles for the form validation message */
+.form__validation-message {
+    color: var(--text-validation-message);
+    margin-bottom: var(--spacing-medium);
+    text-align: center;
+}
+
+.form__buttons {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-x-small);
+
+}

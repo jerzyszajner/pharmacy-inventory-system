@@ -6,21 +6,24 @@
     <link rel="stylesheet" href="./src/css/reset.css" />
     <link rel="stylesheet" href="./src/css/variables.css" />
     <link rel="stylesheet" href="./src/css/style.css" />
+    <link rel="stylesheet" href="./src/css/header.css" />
+    <link rel="stylesheet" href="./src/css/form.css" />
+    <link rel="stylesheet" href="./src/css/render.css" />
     <title>Pharmacy Inventory Management System</title>
   </head>
   <body>
     <!-- Header structure -->
     <header class="header">
       <h1 class="header__title">Pharmacy Inventory Management System</h1>
+      <div class="header__tools-container">
+        <div class="header__tools-item">
+          <button class="header__tools-button">Add</button>
+        </div>
+      </div>
     </header>
     <!-- Main structure -->
     <main>
       <section class="inventory">
-        <div class="tools-container">
-          <div class="add-medicine__container">
-            <button class="add-medicine__button">Add</button>
-          </div>
-        </div>
         <div class="medicines">
           <ul class="medicines__list">
             <!-- <li class="medicine__item">
@@ -117,12 +120,14 @@
           />
         </div>
         <p class="form__validation-message">Please enter the Product Name</p>
-        <button type="submit" class="form__button form__button--add">
-          Add
-        </button>
-        <button type="button" class="form__button form__button--close">
-          Close
-        </button>
+        <div class="form__buttons">
+          <button type="submit" class="form__button form__button--add">
+            Add
+          </button>
+          <button type="button" class="form__button form__button--close">
+            Close
+          </button>
+        </div>
       </form>
     </div>
     <!-- Delete modal structure -->
