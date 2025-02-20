@@ -25,6 +25,7 @@ const closeButton = document.querySelector(".form__button--close");
 document.addEventListener("DOMContentLoaded", () => {
   Ui.displayAddModal(openModalButton, formModal);
   Ui.closeAddmodal(closeModalButton, formModal, form);
+  Ui.renderMedicines();
 });
 
 form.addEventListener("submit", (e) => {
@@ -36,4 +37,6 @@ form.addEventListener("submit", (e) => {
     date.value,
     quantity.value.trim()
   );
+  Ui.renderMedicines();
+  form.reset();
 });
