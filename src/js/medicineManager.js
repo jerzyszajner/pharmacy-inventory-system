@@ -7,8 +7,14 @@ class MedicineManager {
   static addMedicine(name, id, manufacturer, date, quantity) {
     let medicine = new Medicine(name, id, manufacturer, date, quantity);
     console.log(medicine);
-    MedicineManager.medicinesInventory.push(medicine);
-    console.log(MedicineManager.medicinesInventory);
+
+    this.medicinesInventory.push(medicine);
+    this.storeMedicines(this.medicinesInventory);
+    console.log(this.medicinesInventory);
+  }
+
+  static storeMedicines(inventory) {
+    localStorage.setItem("medicines-inventory", JSON.stringify(inventory));
   }
 }
 
