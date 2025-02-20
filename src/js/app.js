@@ -1,4 +1,5 @@
 import Ui from "./ui";
+import MedicineManager from "./medicineManager";
 
 // Selecting DOM elements
 const openModalButton = document.querySelector(".header__tools-button");
@@ -7,11 +8,11 @@ const formModal = document.querySelector(".form-modal");
 const form = document.querySelector(".form");
 
 // Selecting form inputs
-const nameInput = document.querySelector(".form__input--name");
-const idInput = document.querySelector(".form__input--id");
-const manufacturerInput = document.querySelector(".form__input--manufacturer");
-const dateInput = document.querySelector(".form__input--expiry-date");
-const quantityInput = document.querySelector(".form__input--quantity");
+const name = document.querySelector(".form__input--name");
+const id = document.querySelector(".form__input--id");
+const manufacturer = document.querySelector(".form__input--manufacturer");
+const date = document.querySelector(".form__input--expiry-date");
+const quantity = document.querySelector(".form__input--quantity");
 
 // Selecting form error messages
 const validationMessage = document.querySelector(".form__validation-message");
@@ -24,4 +25,15 @@ const closeButton = document.querySelector(".form__button--close");
 document.addEventListener("DOMContentLoaded", () => {
   Ui.displayAddModal(openModalButton, formModal);
   Ui.closeAddmodal(closeModalButton, formModal, form);
+});
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  MedicineManager.addMedicine(
+    name.value.trim(),
+    id.value,
+    manufacturer.value.trim(),
+    date.value,
+    quantity.value.trim()
+  );
 });
