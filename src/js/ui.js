@@ -1,14 +1,17 @@
 import MedicineManager from "./medicineManager";
 
 class Ui {
+  static currentEditId = null;
   static displayAddModal(openModalButton, formModal) {
     openModalButton.addEventListener("click", () => {
+      const formSubmitButton = document.querySelector(".form__button--add");
       formModal.classList.add("display-form");
-      this.renderMedicines();
+      Ui.renderMedicines();
+      formSubmitButton.textContent = "Add";
     });
   }
 
-  static closeAddmodal(closeModalButton, formModal, form) {
+  static closeAddModal(closeModalButton, formModal, form) {
     closeModalButton.addEventListener("click", () => {
       formModal.classList.remove("display-form");
       form.reset();
@@ -41,6 +44,31 @@ class Ui {
     cancelDeleteButton.addEventListener("click", () => {
       deleteModal.classList.remove("display-modal");
     });
+  }
+
+  static displayEditModal() {
+    const formModal = document.querySelector(".form-modal");
+    const formSubmitButton = document.querySelector(".form__button--add");
+    formModal.classList.add("display-form");
+    formSubmitButton.textContent = "Confirm Edit";
+  }
+
+  static populateEditForm(id) {
+    const name = document.querySelector(".form__input--name");
+    const manufacturer = document.querySelector(".form__input--manufacturer");
+    const date = document.querySelector(".form__input--expiry-date");
+    const quantity = document.querySelector(".form__input--quantity");
+
+    const medicineToEdit = MedicineManager.medicinesInventory.find(
+      (medicine) => medicine.id === id
+    );
+
+    name.value = medicineToEdit.name;
+    manufacturer.value = medicineToEdit.manufacturer;
+    date.value = medicineToEdit.date;
+    quantity.value = medicineToEdit.quantity;
+
+    Ui.currentEditId = id;
   }
 
   static renderMedicines() {
@@ -91,7 +119,7 @@ class Ui {
       medicineControlsContainer.classList.add("medicine__controls-container");
 
       // Creating list items
-      const titleContainer = createListItem("Product Name:", medicine.name);
+      const nameContainer = createListItem("Product Name:", medicine.name);
       const idContainer = createListItem("Product ID:", medicine.id);
       const manufacturerContainer = createListItem(
         "Manufacturer:",
@@ -105,7 +133,7 @@ class Ui {
 
       // Appending list items
       medicineDetailsContainer.append(
-        titleContainer,
+        nameContainer,
         idContainer,
         manufacturerContainer,
         dateContainer,
@@ -113,10 +141,13 @@ class Ui {
       );
 
       // Adding event listeners to buttons
-      editButton.addEventListener("click", () => {});
+      editButton.addEventListener("click", () => {
+        Ui.displayEditModal();
+        Ui.populateEditForm(medicine.id);
+      });
 
       deleteButton.addEventListener("click", () => {
-        this.displayDeleteModal(medicine.id, medicine.name);
+        Ui.displayDeleteModal(medicine.id, medicine.name);
       });
     });
   }

@@ -24,6 +24,23 @@ class MedicineManager {
     MedicineManager.storeMedicines(MedicineManager.medicinesInventory);
     Ui.renderMedicines();
   }
+
+  static editMedicine(id, name, manufacturer, date, quantity) {
+    const medicineIndex = MedicineManager.medicinesInventory.findIndex(
+      (medicine) => medicine.id === id
+    );
+    if (medicineIndex !== -1) {
+      MedicineManager.medicinesInventory[medicineIndex] = {
+        id,
+        name,
+        manufacturer,
+        date,
+        quantity,
+      };
+    }
+    MedicineManager.storeMedicines(MedicineManager.medicinesInventory);
+    Ui.renderMedicines();
+  }
 }
 
 export default MedicineManager;
