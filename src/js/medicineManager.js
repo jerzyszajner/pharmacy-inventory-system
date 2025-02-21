@@ -1,20 +1,28 @@
 import Medicine from "./medicine.js";
+import Ui from "./ui.js";
 
 class MedicineManager {
   static medicinesInventory =
     JSON.parse(localStorage.getItem("medicines-inventory")) || [];
 
-  static addMedicine(name, id, manufacturer, date, quantity) {
-    let medicine = new Medicine(name, id, manufacturer, date, quantity);
-    console.log(medicine);
+  static addMedicine(name, manufacturer, date, quantity) {
+    let medicine = new Medicine(name, manufacturer, date, quantity);
 
-    this.medicinesInventory.push(medicine);
-    this.storeMedicines(this.medicinesInventory);
-    console.log(this.medicinesInventory);
+    MedicineManager.medicinesInventory.push(medicine);
+    MedicineManager.storeMedicines(MedicineManager.medicinesInventory);
   }
 
   static storeMedicines(inventory) {
     localStorage.setItem("medicines-inventory", JSON.stringify(inventory));
+  }
+
+  static deleteMedicine(id) {
+    MedicineManager.medicinesInventory =
+      MedicineManager.medicinesInventory.filter(
+        (medicine) => medicine.id !== id
+      );
+    MedicineManager.storeMedicines(MedicineManager.medicinesInventory);
+    Ui.renderMedicines();
   }
 }
 

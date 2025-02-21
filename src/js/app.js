@@ -25,14 +25,15 @@ const closeButton = document.querySelector(".form__button--close");
 document.addEventListener("DOMContentLoaded", () => {
   Ui.displayAddModal(openModalButton, formModal);
   Ui.closeAddmodal(closeModalButton, formModal, form);
+  Ui.closeDeleteModal();
   Ui.renderMedicines();
 });
 
+// Form submission
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   MedicineManager.addMedicine(
     name.value.trim(),
-    id.value,
     manufacturer.value.trim(),
     date.value,
     quantity.value.trim()

@@ -52,6 +52,7 @@
     width: 100%;
 }
 
+/* Media queries */
 @media screen and (max-width: 1100px) {
     .medicines__list {
         max-width: 96%;

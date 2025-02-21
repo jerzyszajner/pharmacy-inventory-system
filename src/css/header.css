@@ -27,6 +27,7 @@
     justify-content: center;
 }
 
+/* Media queries */
 @media screen and (max-width: 600px) {
 
     .header__title {
