@@ -20,8 +20,6 @@ body {
     color: var(--text-color-light);
 }
 
-
-
 /* Main styles for the buttons */
 button {
     min-width: 100px;
@@ -46,6 +44,10 @@ button:active {
 }
 
 /*----------------------------------------*/
+
+main {
+    flex-grow: 1;
+}
 
 /* Styles for the delete modal */
 .delete-modal {
