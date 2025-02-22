@@ -11,10 +11,16 @@ class Ui {
     });
   }
 
-  static closeAddModal(closeModalButton, formModal, form) {
+  static closeAddModal(closeModalButton, formModal, form, validationMessage) {
     closeModalButton.addEventListener("click", () => {
       formModal.classList.remove("display-form");
+      validationMessage.style.opacity = "0";
       form.reset();
+      const invalidInput = document.querySelector(".form__invalid-input");
+      if (invalidInput) {
+        invalidInput.classList.remove("form__invalid-input");
+      }
+      Ui.currentEditId = null;
     });
   }
 

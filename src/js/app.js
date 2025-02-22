@@ -1,5 +1,6 @@
 import Ui from "./ui";
 import MedicineManager from "./medicineManager";
+import Validation from "./validation";
 
 // Selecting DOM elements
 const openModalButton = document.querySelector(".header__tools-button");
@@ -24,7 +25,7 @@ const closeButton = document.querySelector(".form__button--close");
 // Adding event listeners
 document.addEventListener("DOMContentLoaded", () => {
   Ui.displayAddModal(openModalButton, formModal);
-  Ui.closeAddModal(closeModalButton, formModal, form);
+  Ui.closeAddModal(closeModalButton, formModal, form, validationMessage);
   Ui.closeDeleteModal();
   Ui.renderMedicines();
 });
@@ -32,6 +33,9 @@ document.addEventListener("DOMContentLoaded", () => {
 // Form submission
 form.addEventListener("submit", (e) => {
   e.preventDefault();
+  if (!Validation.validateForm(validationMessage)) {
+    return;
+  }
   if (!Ui.currentEditId) {
     MedicineManager.addMedicine(
       name.value.trim(),

@@ -1,0 +1,50 @@
+/* Validation styles */
+.form__invalid-input {
+    border: 3px solid var(--text-validation-message);
+    animation: shake 0.3s;
+}
+
+.form__validation-message {
+    opacity: 0;
+    transition: opacity 0.6s linear;
+    text-align: center;
+    color: var(--text-validation-message);
+    min-height: 20px;
+    animation: pulse 1s infinite;
+}
+
+/* Animation for invalid input */
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-2px);
+    }
+
+    50% {
+        transform: translateX(2px);
+    }
+
+    75% {
+        transform: translateX(-2px);
+    }
+}
+
+/* Animation for validation message */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.03);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
