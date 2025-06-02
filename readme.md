@@ -1,8 +1,10 @@
 # Pharmacy Inventory Managment System
 
+![Pharmacy Inventory Management System Screenshot](docs/pharmacy-inventory-screenshot.webp)
+
 ## Overview
 
-A simple web-based tool to manage a book collection. Users can add, edit, delete medicines with data stored in `localStorage`.
+A simple web-based tool to manage a medicines inventory. Users can add, edit, delete medicines with data stored in `localStorage`.
 
 ## Features
 
@@ -34,11 +36,13 @@ A simple web-based tool to manage a book collection. Users can add, edit, delete
 ## Usage
 
 1. Add item by filling in the details.
-2. Edit or delete item as needed.
+2. Auto-generated ID with UUIDv4.
+3. Edit or delete item as needed.
 
 ## Credits
 
-- A project inspired by the school project “Books Management App.”
+- **Inspiration**: A project inspired by the school project “Books App.”
+- **GPT/AI**: Assisted with debugging
 
 ## Technologies Used
 

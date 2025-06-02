@@ -1,3 +1,4 @@
+/* Styles for the footer */
 .footer {
     display: flex;
     justify-content: center;
@@ -9,17 +10,10 @@
     display: block;
     color: var(--text-color-light);
     font-size: var(--font-size-base);
-}
 
-.footer__link {
-    color: var(--color-background-medium);
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-
-/* Styles for small screens */
-@media screen and (max-width: 430px) {
-    .footer__paragraph {
-        font-size: small;
+    /* Styles for small screens */
+    @media screen and (max-width: 430px) {
+        .footer__paragraph {
+            font-size: small;
+        }
     }
-}

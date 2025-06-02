@@ -1,12 +1,12 @@
 /* Importing the fonts */
 @font-face {
     font-family: Lato-Regular;
-    src: url('../assets/fonts/Lato-Regular.ttf');
+    src: url('/assets/fonts/Lato-Regular.ttf');
 }
 
 @font-face {
     font-family: Lato-Black;
-    src: url('../assets/fonts/Lato-Black.ttf');
+    src: url('/assets/fonts/Lato-Black.ttf');
 }
 
 /* Styles for the body content */

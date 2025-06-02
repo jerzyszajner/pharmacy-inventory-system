@@ -1,4 +1,4 @@
-/* Validation styles */
+/* Styles for the validation of forms */
 .form__invalid-input {
     border: 3px solid var(--text-validation-message);
     animation: shake 0.3s;
